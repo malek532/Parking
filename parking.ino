@@ -31,25 +31,17 @@ void setup() {
 }
 
 void loop() {
-   
-  // Write a pulse to the HC-SR04 Trigger Pin
   
   digitalWrite(trigPin, LOW);
   delayMicroseconds(1000);
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(1000);
   digitalWrite(trigPin, LOW);
-  
-  // Measure the response from the HC-SR04 Echo Pin
  
   duration = pulseIn(echoPin, HIGH);
   
-  // Determine distance from duration
-  // Use 343 metres per second as speed of sound
   
   distance = (duration / 2) * 0.0343;
-  
-  // Send results to Serial Monitor
 
   Serial.print("Distance = ");
   if (distance >= 10  || distance <= 2) {
